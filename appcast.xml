@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Стрічка оновлень Sparkle: Mitla читає її з https://lepekha.github.io/mitla-releases/appcast.xml (SUFeedURL у project.yml). -->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Mitla</title>
+    <link>https://lepekha.github.io/mitla-releases/</link>
+    <description>Mitla updates</description>
+    <language>en</language>
+    <!-- Нові версії: fastlane mac publish додає їх сюди, найновіша зверху. -->
+  </channel>
+</rss>
