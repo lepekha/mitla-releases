@@ -8,6 +8,15 @@
     <language>en</language>
     <!-- Нові версії: fastlane mac publish додає їх сюди, найновіша зверху. -->
     <item>
+      <title>Mitla 0.1.1</title>
+      <pubDate>Wed, 04 Nov 2026 22:37:46 +0200</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li>Quick Cleanup has two new buttons above the categories: <b>Recommended</b> selects only the safe items Mitla suggests, and <b>Deselect All</b> clears every checkbox.</li></ul>]]></description>
+      <enclosure url="https://github.com/lepekha/mitla-releases/releases/download/v0.1.1/Mitla-0.1.1.dmg" type="application/octet-stream" sparkle:edSignature="iGKtDtUgcp8pWAqG9lsiby1qLkT2XCqCtqUvGp/I5BhNcAHZetpegL+rUpQC7CZeDKP70IWG02eUVbV+7In6Bw==" length="4535683" />
+    </item>
+    <item>
       <title>Mitla 0.1.0</title>
       <pubDate>Wed, 04 Nov 2026 13:34:20 +0200</pubDate>
       <sparkle:version>7</sparkle:version>
