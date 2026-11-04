@@ -15,6 +15,7 @@
   <link rel="icon" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
+  <script src="i18n.js" defer></script>
   <script src="site.js" defer></script>
 </head>
 <body>
@@ -26,7 +27,12 @@
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
         </a>
-        <a class="btn btn-black btn-sm" data-download href="#download">Download</a>
+        <label class="lang">
+          <span class="visually-hidden" data-i18n="language">Language</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+          <select id="lang-select"></select>
+        </label>
+        <a class="btn btn-black btn-sm" data-download href="#download" data-i18n="download">Download</a>
       </div>
     </div>
   </header>
@@ -34,15 +40,15 @@
   <main>
     <div class="hero wrap" id="download">
       <img class="app-icon" src="icon.png" alt="Mitla icon" width="120" height="120">
-      <h1>See what fills your Mac.<br>Clean it safely.</h1>
-      <p class="lead">Clear charts of your disk, and a safe way to get space back.</p>
+      <h1 data-i18n-html="h1">See what fills your Mac.<br>Clean it safely.</h1>
+      <p class="lead" data-i18n="lead">Clear charts of your disk, and a safe way to get space back.</p>
       <div class="actions">
         <a class="btn btn-black" data-download href="#download">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
-          Download for macOS
+          <span data-i18n="downloadMac">Download for macOS</span>
         </a>
       </div>
-      <p class="meta"><span data-version>Version 0.1.0</span><span>macOS 14 or later</span><span>Notarized by Apple</span></p>
+      <p class="meta"><span data-version>Version 0.1.0</span><span data-i18n="requires">macOS 14 or later</span><span data-i18n="notarized">Notarized by Apple</span></p>
       <div class="screenshot">
         <img src="screenshots/bubbles.webp" alt="Mitla showing the contents of a home folder as bubbles" width="2488" height="1670">
       </div>
@@ -51,13 +57,13 @@
     <section id="charts">
       <div class="wrap">
         <div class="section-head">
-          <h2>Four ways to see your disk</h2>
-          <p>Bubbles, treemap, rings or layers. Pick the one that reads best for you and click any part to dive in.</p>
+          <h2 data-i18n="chartsTitle">Four ways to see your disk</h2>
+          <p data-i18n="chartsText">Bubbles, treemap, rings or layers. Pick the one that reads best for you and click any part to dive in.</p>
         </div>
         <div class="tabs" role="tablist" aria-label="Chart styles">
-          <button role="tab" id="tab-treemap" aria-controls="panel-treemap" aria-selected="true">Treemap</button>
-          <button role="tab" id="tab-rings" aria-controls="panel-rings" aria-selected="false" tabindex="-1">Rings</button>
-          <button role="tab" id="tab-bubbles" aria-controls="panel-bubbles" aria-selected="false" tabindex="-1">Bubbles</button>
+          <button role="tab" id="tab-treemap" aria-controls="panel-treemap" aria-selected="true" data-i18n="tabTreemap">Treemap</button>
+          <button role="tab" id="tab-rings" aria-controls="panel-rings" aria-selected="false" tabindex="-1" data-i18n="tabRings">Rings</button>
+          <button role="tab" id="tab-bubbles" aria-controls="panel-bubbles" aria-selected="false" tabindex="-1" data-i18n="tabBubbles">Bubbles</button>
         </div>
         <div class="screenshot tab-panels">
           <img role="tabpanel" id="panel-bubbles" aria-labelledby="tab-bubbles" src="screenshots/bubbles.webp" alt="Folders as bubbles, sized by how much space they take" width="2488" height="1670" loading="lazy" hidden>
@@ -71,22 +77,22 @@
       <div class="wrap">
         <div class="row">
           <div class="row-text">
-            <h3>Quick Cleanup</h3>
-            <p>Caches, logs, installers and developer junk, found for you and sorted into clear categories. Safe items are selected automatically, and apps that are open are left alone.</p>
+            <h3 data-i18n="cleanupTitle">Quick Cleanup</h3>
+            <p data-i18n="cleanupText">Caches, logs, installers and developer junk, found for you and sorted into clear categories. Safe items are selected automatically, and apps that are open are left alone.</p>
           </div>
           <div class="screenshot"><img src="screenshots/cleanup.webp" alt="Quick Cleanup with categories such as app caches, logs and Xcode data" width="2488" height="1670" loading="lazy"></div>
         </div>
         <div class="row flip">
           <div class="row-text">
-            <h3>Uninstall completely</h3>
-            <p>Apps go together with their caches, logs and background services. Settings are kept unless you ask, so a reinstall picks up where you left off.</p>
+            <h3 data-i18n="uninstallTitle">Uninstall completely</h3>
+            <p data-i18n="uninstallText">Apps go together with their caches, logs and background services. Settings are kept unless you ask, so a reinstall picks up where you left off.</p>
           </div>
           <div class="screenshot"><img src="screenshots/uninstall.webp" alt="Removing Google Chrome together with its caches" width="2488" height="1670" loading="lazy"></div>
         </div>
         <div class="row">
           <div class="row-text">
-            <h3>Nothing goes without a look</h3>
-            <p>Before cleaning you see every item and its size. Everything goes to the Trash first, and nothing about you or your files ever leaves your Mac.</p>
+            <h3 data-i18n="safeTitle">Nothing goes without a look</h3>
+            <p data-i18n="safeText">Before cleaning you see every item and its size. Everything goes to the Trash first, and nothing about you or your files ever leaves your Mac.</p>
           </div>
           <div class="screenshot"><img src="screenshots/confirm.webp" alt="Confirmation listing everything that will be moved to the Trash" width="2488" height="1670" loading="lazy"></div>
         </div>
@@ -95,16 +101,16 @@
 
     <section id="faq">
       <div class="wrap">
-        <div class="section-head"><h2>Questions</h2></div>
+        <div class="section-head"><h2 data-i18n="faqTitle">Questions</h2></div>
         <div class="faq">
-          <details><summary>What does Mitla mean?</summary>
-            <p>It's Ukrainian for "broom". Say it "MEET-la".</p></details>
-          <details><summary>Why does Mitla ask for Full Disk Access?</summary>
-            <p>macOS hides some folders, like Mail and other apps' data, from every app. With Full Disk Access Mitla can show their size too. Without it Mitla still works and simply skips them.</p></details>
-          <details><summary>Why isn't it in the Mac App Store?</summary>
-            <p>App Store apps run in a sandbox that can't see your whole disk. Mitla is signed with an Apple Developer ID and notarized by Apple, so macOS opens it without warnings.</p></details>
-          <details><summary>Does Mitla collect any data?</summary>
-            <p>No. It has no analytics or tracking, and goes online only to check for updates. See the <a href="privacy/">Privacy Policy</a>.</p></details>
+          <details><summary data-i18n="q1">What does Mitla mean?</summary>
+            <p data-i18n="a1">It's Ukrainian for "broom". Say it "MEET-la".</p></details>
+          <details><summary data-i18n="q2">Why does Mitla ask for Full Disk Access?</summary>
+            <p data-i18n="a2">macOS hides some folders, like Mail and other apps' data, from every app. With Full Disk Access Mitla can show their size too. Without it Mitla still works and simply skips them.</p></details>
+          <details><summary data-i18n="q3">Why isn't it in the Mac App Store?</summary>
+            <p data-i18n="a3">App Store apps run in a sandbox that can't see your whole disk. Mitla is signed with an Apple Developer ID and notarized by Apple. On first launch macOS only asks once to confirm an app from the internet and notes that Apple found no malicious software.</p></details>
+          <details><summary data-i18n="q4">Does Mitla collect any data?</summary>
+            <p data-i18n-html="a4">No. It has no analytics or tracking, and goes online only to check for updates. See the <a href="privacy/">Privacy Policy</a>.</p></details>
         </div>
       </div>
     </section>
@@ -114,9 +120,9 @@
     <div class="wrap">
       <span>© 2026 Mitla</span>
       <nav aria-label="Footer">
-        <a href="privacy/">Privacy Policy</a>
-        <a href="terms/">Terms of Use</a>
-        <a data-releases-link href="https://github.com/">Releases</a>
+        <a href="privacy/" data-i18n="privacy">Privacy Policy</a>
+        <a href="terms/" data-i18n="terms">Terms of Use</a>
+        <a data-releases-link href="https://github.com/" data-i18n="releases">Releases</a>
         <a href="mailto:mitla.support@gmail.com">mitla.support@gmail.com</a>
       </nav>
     </div>

@@ -1,3 +1,54 @@
+(function () {
+  // Мова сайту: ?lang=… → збережений вибір → мова браузера → англійська.
+  const dict = window.MITLA_I18N || {};
+  const codes = Object.keys(dict);
+  const STORE = "mitla.lang";
+  // Версія з HTML, поки GitHub API не відповів.
+  let version = (document.querySelector("[data-version]")?.textContent.match(/\d[\w.-]*/) || [null])[0];
+
+  function match(tag) {
+    if (!tag) return null;
+    const t = tag.toLowerCase();
+    const exact = codes.find((c) => c.toLowerCase() === t);
+    if (exact) return exact;
+    const base = t.split("-")[0];
+    if (base === "zh") return dict["zh-Hans"] ? "zh-Hans" : null; // китайська: лише спрощена
+    return codes.find((c) => c.toLowerCase().split("-")[0] === base) || null;
+  }
+  function detect() {
+    const param = new URLSearchParams(location.search).get("lang");
+    if (match(param)) return match(param);
+    try { const saved = localStorage.getItem(STORE); if (match(saved)) return match(saved); } catch (e) {}
+    for (const l of navigator.languages || [navigator.language]) { const m = match(l); if (m) return m; }
+    return "en";
+  }
+
+  let current = detect();
+  function apply() {
+    const d = dict[current];
+    if (!d) return;
+    document.documentElement.lang = current;
+    if (d.title) document.title = d.title;
+    document.querySelectorAll("[data-i18n]").forEach((el) => { const v = d[el.dataset.i18n]; if (v != null) el.textContent = v; });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => { const v = d[el.dataset.i18nHtml]; if (v != null) el.innerHTML = v; });
+    if (version && d.version) document.querySelectorAll("[data-version]").forEach((el) => (el.textContent = d.version.replace("{v}", version)));
+  }
+
+  const select = document.getElementById("lang-select");
+  if (select && codes.length) {
+    codes.forEach((c) => select.add(new Option(dict[c].name, c)));
+    select.value = current;
+    select.addEventListener("change", () => {
+      current = select.value;
+      try { localStorage.setItem(STORE, current); } catch (e) {}
+      apply();
+    });
+  }
+  if (current !== "en") apply();
+
+  window.MITLA_SET_VERSION = (v) => { version = v; apply(); };
+})();
+
 // Кнопки «Download» ведуть на DMG з останнього релізу GitHub.
 // Репозиторій задано в <meta name="mitla:repo"> у index.html.
 // Посилання releases/latest/download/Mitla.dmg працює й без JavaScript-запиту:
@@ -18,7 +69,7 @@
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((release) => {
         const version = String(release.tag_name || "").replace(/^v/, "");
-        if (version) document.querySelectorAll("[data-version]").forEach((el) => (el.textContent = `Version ${version}`));
+        if (version) window.MITLA_SET_VERSION(version);
         const asset = (release.assets || []).find((a) => /\.dmg$/i.test(a.name));
         if (!asset) return;
         document.querySelectorAll("[data-download]").forEach((a) => (a.href = asset.browser_download_url));
