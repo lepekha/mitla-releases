@@ -37,7 +37,7 @@
   const select = document.getElementById("lang-select");
   if (select && codes.length) {
     select.innerHTML = "";
-    codes.forEach((c) => select.add(new Option(dict[c].name, c)));
+    codes.forEach((c) => { const o = new Option(c.split("-")[0], c); o.title = dict[c].name; select.add(o); });
     select.value = current;
     select.addEventListener("change", () => {
       current = select.value;
