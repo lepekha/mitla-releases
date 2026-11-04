@@ -9,7 +9,7 @@
   <meta name="mitla:repo" content="lepekha/mitla-releases">
   <meta property="og:title" content="Mitla — see what fills your Mac">
   <meta property="og:description" content="Disk space analyzer and safe cleaner for macOS. Private, native, free of tracking.">
-  <meta property="og:image" content="screenshots/overview.png">
+  <meta property="og:image" content="og.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="icon.png">
@@ -44,22 +44,56 @@
       </div>
       <p class="meta"><span data-version>Version 0.1.0</span><span>macOS 14 or later</span><span>Notarized by Apple</span></p>
       <div class="screenshot">
-        <img src="screenshots/overview.png" alt="Mitla showing the contents of a folder as bubbles" width="2658" height="1874">
+        <img src="screenshots/bubbles.webp" alt="Mitla showing the contents of a home folder as bubbles" width="2488" height="1670">
       </div>
     </div>
 
-    <section id="features">
+    <section id="charts">
       <div class="wrap">
-        <div class="features">
-          <div><h3>See what's taking space</h3><p>Bubbles, treemap, rings or layers. Click to dive in.</p></div>
-          <div><h3>Quick Cleanup</h3><p>Caches, logs, installers and developer junk, found for you.</p></div>
-          <div><h3>Uninstall completely</h3><p>Apps go together with everything they left behind.</p></div>
+        <div class="section-head">
+          <h2>Four ways to see your disk</h2>
+          <p>Bubbles, treemap, rings or layers. Pick the one that reads best for you and click any part to dive in.</p>
         </div>
-        <p class="note">Everything goes to the Trash first, nothing is removed without your confirmation, and nothing about you or your files ever leaves your Mac.</p>
+        <div class="tabs" role="tablist" aria-label="Chart styles">
+          <button role="tab" id="tab-treemap" aria-controls="panel-treemap" aria-selected="true">Treemap</button>
+          <button role="tab" id="tab-rings" aria-controls="panel-rings" aria-selected="false" tabindex="-1">Rings</button>
+          <button role="tab" id="tab-bubbles" aria-controls="panel-bubbles" aria-selected="false" tabindex="-1">Bubbles</button>
+        </div>
+        <div class="screenshot tab-panels">
+          <img role="tabpanel" id="panel-bubbles" aria-labelledby="tab-bubbles" src="screenshots/bubbles.webp" alt="Folders as bubbles, sized by how much space they take" width="2488" height="1670" loading="lazy" hidden>
+          <img role="tabpanel" id="panel-treemap" aria-labelledby="tab-treemap" src="screenshots/treemap.webp" alt="Folders as a treemap of nested rectangles" width="2488" height="1670">
+          <img role="tabpanel" id="panel-rings" aria-labelledby="tab-rings" src="screenshots/rings.webp" alt="Folders as rings around the selected folder" width="2488" height="1670" loading="lazy" hidden>
+        </div>
       </div>
     </section>
 
-    <section class="alt" id="faq">
+    <section class="alt" id="features">
+      <div class="wrap">
+        <div class="row">
+          <div class="row-text">
+            <h3>Quick Cleanup</h3>
+            <p>Caches, logs, installers and developer junk, found for you and sorted into clear categories. Safe items are selected automatically, and apps that are open are left alone.</p>
+          </div>
+          <div class="screenshot"><img src="screenshots/cleanup.webp" alt="Quick Cleanup with categories such as app caches, logs and Xcode data" width="2488" height="1670" loading="lazy"></div>
+        </div>
+        <div class="row flip">
+          <div class="row-text">
+            <h3>Uninstall completely</h3>
+            <p>Apps go together with their caches, logs and background services. Settings are kept unless you ask, so a reinstall picks up where you left off.</p>
+          </div>
+          <div class="screenshot"><img src="screenshots/uninstall.webp" alt="Removing Google Chrome together with its caches" width="2488" height="1670" loading="lazy"></div>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <h3>Nothing goes without a look</h3>
+            <p>Before cleaning you see every item and its size. Everything goes to the Trash first, and nothing about you or your files ever leaves your Mac.</p>
+          </div>
+          <div class="screenshot"><img src="screenshots/confirm.webp" alt="Confirmation listing everything that will be moved to the Trash" width="2488" height="1670" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
       <div class="wrap">
         <div class="section-head"><h2>Questions</h2></div>
         <div class="faq">
