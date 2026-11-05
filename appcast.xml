@@ -8,6 +8,15 @@
     <language>en</language>
     <!-- Нові версії: fastlane mac publish додає їх сюди, найновіша зверху. -->
     <item>
+      <title>Mitla 0.1.2</title>
+      <pubDate>Thu, 05 Nov 2026 19:31:18 +0200</pubDate>
+      <sparkle:version>9</sparkle:version>
+      <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li>Mitla now sends anonymous usage statistics and crash reports through Firebase, so problems can be found and fixed faster. Your files, their names and contents never leave your Mac. You can turn this off in the Mitla menu with <b>Share Anonymous Usage Data</b>.</li></ul>]]></description>
+      <enclosure url="https://github.com/lepekha/mitla-releases/releases/download/v0.1.2/Mitla-0.1.2.dmg" type="application/octet-stream" sparkle:edSignature="AEcDByPKSgseml2ntI1YkaH+JbLW9h4W+uPILjINnKHUAt/OuyNY0UrShwgOgiIW0rtDS8YDy3tMPsYYBUiNDw==" length="6403956" />
+    </item>
+    <item>
       <title>Mitla 0.1.1</title>
       <pubDate>Wed, 04 Nov 2026 22:37:46 +0200</pubDate>
       <sparkle:version>8</sparkle:version>
